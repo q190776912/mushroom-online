@@ -45,7 +45,10 @@ page {
   margin: 0 18.5rpx;
 }
 
-.description .across {
+.description::after,
+.description::before {
+  display: block;
+  content: '';
   width: 45rpx;
   height: 2rpx;
   background-color: rgba(229, 229, 229, 1);

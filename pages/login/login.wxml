@@ -3,9 +3,7 @@
 </view>
 <text class="logo-name">酷丁鱼在线课堂</text>
 <view class="description">
-  <view class="across"></view>
   <text>陪伴从心开始</text>
-  <view class="across"></view>
 </view>
 <navigator class="authorization">
   <image src="../../assets/images/微信icon@2x.png"></image>
