@@ -3,7 +3,7 @@ const baseUrl = 'http://localhost:3000/api/'
 function request(options) {
   return new Promise((resolve, reject) => {
     wx.request({
-      url: options.url,
+      url: `${baseUrl}${options.url}`,
       data: options.data,
       method: options.method || 'GET',
       success: (res) => {
@@ -11,8 +11,9 @@ function request(options) {
           resolve(res.data)
         } else {
           wx.showToast({
-            title: `登录失败！${res.data.message}`,
+            title: '登录失败！',
           })
+          console.log(res.data.message)
         }
       },
       fail: (res) => {
@@ -32,7 +33,7 @@ function loginRequest(data) {
     title: '加载中',
   })
   return request({
-    url: `${baseUrl}user/wxlogin`,
+    url: 'user/wxlogin',
     method: 'POST',
     data,
     complete: () => {

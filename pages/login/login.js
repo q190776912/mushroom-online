@@ -16,29 +16,29 @@ Page({
     }
     wx.login({
       //  用户授权成功
-      success(res) {
+      async success(res) {
         if (res.code) {
           //  发送请求
-          loginRequest({
-            code: res.code,
-            nickname: userInfo.nickName,
-            avatar: userInfo.avatarUrl
-          }).then((res) => {
-            wx.setStorageSync('token', res.token)
+          try {
+            const data = await loginRequest({
+              code: res.code,
+              nickname: userInfo.nickName,
+              avatar: userInfo.avatarUrl
+            })
+            wx.setStorageSync('token', data.token)
             wx.showToast({
-              title: res.message,
+              title: data.message,
               success() {
                 wx.navigateTo({
                   url: '/pages/home/home',
                 })
               }
             })
-          }).catch((res) => {
+          } catch {
             wx.showToast({
               title: `登录失败！`,
             })
-            console.log(res);
-          })
+          }
         } else {
           console.log('登录失败！' + res.errMsg)
         }
