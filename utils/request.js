@@ -7,7 +7,13 @@ function request(options) {
       data: options.data,
       method: options.method || 'GET',
       success: (res) => {
-        resolve(res)
+        if (res.data.status === 0) {
+          resolve(res.data)
+        } else {
+          wx.showToast({
+            title: `登录失败！${res.data.message}`,
+          })
+        }
       },
       fail: (res) => {
         reject(res)
