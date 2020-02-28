@@ -41,10 +41,8 @@ page {
   border: 2rpx solid rgba(168, 168, 168, 1);
   border-radius: 40rpx;
   text-align: center;
-  line-height: 56rpx;
   font-size: 20rpx;
   font-weight: 400;
-  color: rgba(168, 168, 168, 1);
 }
 
 .code {
