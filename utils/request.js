@@ -16,14 +16,8 @@ function request(options) {
           console.log(res.data.message)
         }
       },
-      fail: (res) => {
-        reject(res)
-      },
-      complete: () => {
-        if (options.complete) {
-          options.complete()
-        }
-      }
+      fail: reject || null,
+      complete: options.complete || null
     })
   })
 }

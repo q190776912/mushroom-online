@@ -18,7 +18,7 @@ Page({
       //  用户授权成功
       async success(res) {
         if (res.code) {
-          //  发送请求
+          //  发送login请求
           try {
             const data = await loginRequest({
               code: res.code,
