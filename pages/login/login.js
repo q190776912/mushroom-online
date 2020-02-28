@@ -14,11 +14,14 @@ Page({
       return
     }
     wx.login({
+      //  用户授权成功
       success(res) {
         if (res.code) {
+          //  展示加载中
           wx.showLoading({
             title: '加载中',
           })
+          //  发送请求
           wx.request({
             url: 'http://localhost:3000/api/user/wxlogin',
             data: {
@@ -31,7 +34,6 @@ Page({
               wx.showToast({
                 title: res.data.message,
                 success() {
-                  console.log(res)
                   wx.navigateTo({
                     url: '/pages/home/home',
                   })
@@ -39,6 +41,7 @@ Page({
               })
             },
             complete() {
+              //  关闭加载
               wx.hideLoading()
             }
           })
