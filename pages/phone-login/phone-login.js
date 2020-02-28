@@ -1,5 +1,3 @@
-const COUNT_DOWN_NUM = 10;
-
 Page({
 
   /**
@@ -8,7 +6,7 @@ Page({
   data: {
     isSendCode: false,
     phoneNumber: '15625120668',
-    countNum: COUNT_DOWN_NUM
+    countNum: 10
   },
 
   getPhoneNumber(event) {
@@ -36,6 +34,7 @@ Page({
   },
 
   timeDown() {
+    const COUNT_DOWN_NUM = this.data.countNum
     const timer = setInterval(() => {
       let countNum = this.data.countNum;
       if (--countNum) {
