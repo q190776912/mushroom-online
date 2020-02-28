@@ -1,0 +1,86 @@
+page {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 64rpx;
+  font-family: PingFang SC;
+}
+
+.title {
+  font-size: 82rpx;
+  font-weight: 800;
+  line-height: 114rpx;
+  color: rgba(51, 51, 51, 1);
+  margin-top: 102rpx;
+}
+
+.description {
+  font-size: 30rpx;
+  font-weight: 300;
+  line-height: 42rpx;
+  color: rgba(168, 168, 168, 1);
+  letter-spacing: 4rpx;
+  margin-top: 10rpx;
+}
+
+.phone {
+  display: flex;
+  margin-top: 128rpx;
+  padding-bottom: 22rpx;
+  border-bottom: 2rpx solid rgba(248, 248, 248, 1);
+}
+
+.phone input {
+  flex: 1;
+  font-size: 30rpx;
+}
+
+.phone .code-btn {
+  width: 164rpx;
+  height: 56rpx;
+  border: 2rpx solid rgba(168, 168, 168, 1);
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 56rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: rgba(168, 168, 168, 1);
+}
+
+.code {
+  margin-top: 80rpx;
+  border-bottom: 2rpx solid rgba(248, 248, 248, 1);
+  font-size: 30rpx;
+  padding-bottom: 30rpx;
+  background-color: #fff;
+}
+
+.btn {
+  align-self: center;
+  margin-top: 313rpx;
+  width: 568rpx;
+  height: 99rpx;
+  background: linear-gradient(225deg, rgba(255, 209, 123, 1) 0%, rgba(255, 139, 65, 1) 100%);
+  box-shadow: 0 10rpx 30rpx rgba(254, 160, 53, 0.47);
+  border-radius: 46rpx;
+  line-height: 99rpx;
+  color: #fff;
+}
+
+.trademark {
+  align-self: center;
+  margin-top: 232rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  line-height: 28rpx;
+  color: rgba(168, 168, 168, 1);
+}
+
+.footer {
+  align-self: center;
+  margin: 72rpx 0 16rpx 0;
+  width: 268rpx;
+  height: 10rpx;
+  background: rgba(0, 0, 0, 1);
+  border-radius: 200rpx;
+}

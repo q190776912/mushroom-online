@@ -1,0 +1,12 @@
+<text class="title">手机号验证</text>
+<text class="description">用于即使获取课程最新信息</text>
+<view class="phone">
+  <input type="number" placeholder="请输入您的手机号"></input>
+  <button class="code-btn">10s</button>
+</view>
+<view class="code">
+  <input type="number" placeholder="请输入验证码"></input>
+</view>
+<button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="btn">立即验证</button>
+<text class="trademark">Copyright © 2019 酷丁鱼在线课堂</text>
+<view class="footer"></view>

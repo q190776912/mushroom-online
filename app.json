@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/phone-login/phone-login"
   ],
   "window": {
     "backgroundTextStyle": "light",

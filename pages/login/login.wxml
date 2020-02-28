@@ -9,6 +9,6 @@
   <image src="../../assets/images/微信icon@2x.png"></image>
   <text>微信授权登录</text>
 </button>
-<navigator class="phone">手机号码登录</navigator>
+<navigator url="/pages/phone-login/phone-login" class="phone">手机号码登录</navigator>
 <text class="trademark">Copyright © 2019 酷丁鱼在线课堂</text>
 <view class="footer"></view>
