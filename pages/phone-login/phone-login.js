@@ -20,7 +20,7 @@ Page({
       return;
     }
     const reg = /^1[3456789][0-9]{9}$/
-    if (this.data.phoneNumber && reg.test(this.data.phoneNumber)) {
+    if (reg.test(this.data.phoneNumber)) {
       this.setData({
         isSendCode: true
       })
