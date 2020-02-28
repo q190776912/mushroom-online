@@ -22,7 +22,7 @@ function request(options) {
   })
 }
 
-function loginRequest(data) {
+function wxloginRequest(data) {
   wx.showLoading({
     title: '加载中',
   })
@@ -37,5 +37,5 @@ function loginRequest(data) {
 }
 
 export {
-  loginRequest
+  wxloginRequest
 }

@@ -1,4 +1,4 @@
-import { loginRequest } from '../../utils/request.js'
+import { wxloginRequest } from '../../utils/request.js'
 
 Page({
   data: {
@@ -20,7 +20,7 @@ Page({
         if (res.code) {
           //  发送login请求
           try {
-            const data = await loginRequest({
+            const data = await wxloginRequest({
               code: res.code,
               nickname: userInfo.nickName,
               avatar: userInfo.avatarUrl
