@@ -1,4 +1,5 @@
-// pages/login/login.js
+import { loginRequest } from '../../utils/request.js'
+
 Page({
   data: {
 
@@ -22,15 +23,13 @@ Page({
             title: '加载中',
           })
           //  发送请求
-          wx.request({
-            url: 'http://localhost:3000/api/user/wxlogin',
-            data: {
-              code: res.code,
-              nickname: userInfo.nickName,
-              avatar: userInfo.avatarUrl
-            },
-            method: 'POST',
-            success(res) {
+          loginRequest({
+            code: res.code,
+            nickname: userInfo.nickName,
+            avatar: userInfo.avatarUrl
+          }).then((res) => {
+            if (res.data.status === 0) {
+              wx.setStorageSync('token', res.data.token)
               wx.showToast({
                 title: res.data.message,
                 success() {
@@ -39,11 +38,15 @@ Page({
                   })
                 }
               })
-            },
-            complete() {
-              //  关闭加载
-              wx.hideLoading()
+            } else {
+              wx.showToast({
+                title: `登录失败！${res.data.message}`,
+              })
             }
+          }).catch((res) => {
+            wx.showToast({
+              title: `登录失败！`,
+            })
           })
         } else {
           console.log('登录失败！' + res.errMsg)
