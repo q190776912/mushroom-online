@@ -6,6 +6,20 @@ function swipersRequest() {
   })
 }
 
+function courseRequest() {
+  return request({
+    url: 'home/course'
+  })
+}
+
+function videoRequest() {
+  return request({
+    url: 'home/video'
+  })
+}
+
 export {
-  swipersRequest
+  swipersRequest,
+  courseRequest,
+  videoRequest
 }

@@ -1,4 +1,4 @@
-import { swipersRequest } from '../../api/home.js'
+import { swipersRequest, courseRequest, videoRequest } from '../../api/home.js'
 
 Page({
 
@@ -6,15 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgList: []
+    swipersList: [],
+    courseList: [],
+    videoList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    const data = await swipersRequest()
-    console.log(data)
+    const swipersData = await swipersRequest()
+    const courseData = await courseRequest()
+    const videoData = await videoRequest()
+    console.log(videoData)
+    this.setData({
+      swipersList: swipersData.message,
+      courseList: courseData.message,
+      videoList: videoData.message
+    })
   },
 
   /**

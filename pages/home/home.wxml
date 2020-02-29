@@ -7,9 +7,9 @@
   </view>
 	<!-- 轮播图 -->
 	<swiper autoplay circular>
-		<navigator url="" wx:for="{{[1,2,3]}}" wx:key="*this">
+		<navigator url="" wx:for="{{swipersList}}" wx:key="id">
 			<swiper-item>
-				<image src="http://127.0.0.1:3000/public/images/carousel/banner_01.png"></image>
+				<image src="{{item.img_url}}"></image>
 			</swiper-item>
 		</navigator>
 	</swiper>
@@ -20,8 +20,8 @@
 			<image src="/assets/images/arrow@2x.png" alt="" />
 		</view>
 		<scroll-view scroll-x class="course-container">
-			<navigator class="course-item" wx:for="[1,2,3]" wx:key="*this">
-				<image src="http://127.0.0.1:3000/public/images/recommend/recommend1.png" alt="" />
+			<navigator class="course-item" wx:for="{{courseList}}" wx:key="id">
+				<image src="{{item.icon}}" alt="" />
 			</navigator>
 		</scroll-view>
 	</view>
@@ -32,10 +32,10 @@
 			<image src="/assets/images/arrow@2x.png" alt="" />
 		</view>
 		<view class="hot-video">
-			<navigator url="" class="video-item" wx:for="{{[1,2,3,4]}}" wx:key="*this">
-				<image src="http://127.0.0.1:3000/public/images/hot_video/hot1.png" alt="" />
+			<navigator url="" class="video-item" wx:for="{{videoList}}" wx:key="id">
+				<image src="{{item.cover_photo_url}}" alt="" />
 				<text class="title"></text>
-				<text class="subtitle">451人已观看</text>
+				<text class="subtitle">{{item.view_count}}人已观看</text>
 			</navigator>
 		</view>
 	</view>
