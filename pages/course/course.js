@@ -1,18 +1,34 @@
-// pages/course/index.js
+import { listRequest } from '../../api/course.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    const listData = await listRequest()
+    let list = listData.message
+    list.forEach((item) => {
+      switch (item.level) {
+        case 1:
+          item.level = '初级';
+          break;
+        case 2:
+          item.level = '中级';
+          break;
+        case 3:
+          item.level = '高级';
+          break;
+      }
+    })
+    this.setData({ list })
   },
 
   /**
