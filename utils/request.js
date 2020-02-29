@@ -1,11 +1,33 @@
-function request(options) {
+export default function request(options) {
   const baseUrl = 'http://localhost:3000/api/'
+  const token = wx.getStorageSync('token') || null
+  const whiteList = [
+    "pages/login/login",
+    "pages/phone-login/phone-login"
+  ] 
+  if (!token) {
+    const pageList = getCurrentPages()
+    const path = pageList[pageList.length - 1].route
+    console.log(path)
+    if (whiteList.indexOf(path) === -1) {
+      wx.showToast({
+        title: '请先登录！',
+        icon: 'none'
+      })
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+    }
+  }
   wx.showLoading({
     title: '加载中',
   })
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${baseUrl}${options.url}`,
+      header: {
+        Authorization: token || ''
+      },
       data: options.data || null,
       method: options.method || 'GET',
       success: (res) => {
@@ -24,39 +46,4 @@ function request(options) {
       }
     })
   })
-}
-
-function wxloginRequest({ code, nickname, avatar }) {
-  return request({
-    url: 'user/wxlogin',
-    method: 'POST',
-    data: {
-      code,
-      nickname,
-      avatar
-    }
-  })
-}
-
-function vcodeRequest(phone) {
-  return request({
-    url: `user/vcode?phone=${phone}`
-  })
-}
-
-function loginRequest({ phone, vcode }) {
-  return request({
-    url: 'user/login',
-    method: 'POST',
-    data: {
-      phone,
-      vcode
-    }
-  })
-}
-
-export {
-  wxloginRequest,
-  vcodeRequest,
-  loginRequest
 }

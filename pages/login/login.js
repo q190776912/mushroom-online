@@ -1,4 +1,4 @@
-import { wxloginRequest } from '../../utils/request.js'
+import { wxloginRequest } from '../../api/user.js'
 
 Page({
   data: {
@@ -29,8 +29,8 @@ Page({
             wx.showToast({
               title: data.message,
               success() {
-                wx.navigateTo({
-                  url: '/pages/home/home',
+                wx.switchTab({
+                  url: '/pages/home/home'
                 })
               }
             })

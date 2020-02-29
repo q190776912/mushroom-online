@@ -1,4 +1,4 @@
-import { vcodeRequest, loginRequest } from '../../utils/request.js'
+import { vcodeRequest, loginRequest } from '../../api/user.js'
 
 Page({
 
@@ -89,8 +89,9 @@ Page({
         wx.showToast({
           title: data.message,
           success() {
-            wx.navigateTo({
-              url: '/pages/home/home',
+            console.log(1)
+            wx.switchTab({
+              url: '/pages/home/home'
             })
           }
         })
