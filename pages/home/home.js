@@ -18,7 +18,6 @@ Page({
     const swipersData = await swipersRequest()
     const courseData = await courseRequest()
     const videoData = await videoRequest()
-    console.log(videoData)
     this.setData({
       swipersList: swipersData.message,
       courseList: courseData.message,
