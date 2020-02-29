@@ -5,8 +5,8 @@
   <button bindtap="getVcode" disabled="{{isSendCode}}" class="code-btn">{{isSendCode ? countNum + 's' : '获取验证码'}}</button>
 </view>
 <view class="code">
-  <input type="number" placeholder="请输入验证码"></input>
+  <input value="{{vcode}}" type="number" placeholder="请输入验证码"></input>
 </view>
-<button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="btn">立即验证</button>
+<button bindtap="userLogin" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="btn">立即验证</button>
 <text class="trademark">Copyright © 2019 酷丁鱼在线课堂</text>
 <view class="footer"></view>

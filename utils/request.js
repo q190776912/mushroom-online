@@ -1,10 +1,12 @@
-const baseUrl = 'http://localhost:3000/api/'
-
 function request(options) {
+  const baseUrl = 'http://localhost:3000/api/'
+  wx.showLoading({
+    title: '加载中',
+  })
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${baseUrl}${options.url}`,
-      data: options.data,
+      data: options.data || null,
       method: options.method || 'GET',
       success: (res) => {
         if (res.data.status === 0) {
@@ -17,25 +19,44 @@ function request(options) {
         }
       },
       fail: reject || null,
-      complete: options.complete || null
+      complete:() => {
+        wx.hideLoading()
+      }
     })
   })
 }
 
-function wxloginRequest(data) {
-  wx.showLoading({
-    title: '加载中',
-  })
+function wxloginRequest({ code, nickname, avatar }) {
   return request({
     url: 'user/wxlogin',
     method: 'POST',
-    data,
-    complete: () => {
-      wx.hideLoading()
+    data: {
+      code,
+      nickname,
+      avatar
+    }
+  })
+}
+
+function vcodeRequest(phone) {
+  return request({
+    url: `user/vcode?phone=${phone}`
+  })
+}
+
+function loginRequest({ phone, vcode }) {
+  return request({
+    url: 'user/login',
+    method: 'POST',
+    data: {
+      phone,
+      vcode
     }
   })
 }
 
 export {
-  wxloginRequest
+  wxloginRequest,
+  vcodeRequest,
+  loginRequest
 }
