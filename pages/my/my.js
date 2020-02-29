@@ -1,18 +1,23 @@
-// pages/my/index.js
+import { infoRequest } from '../../api/my.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    const infoData = await infoRequest()
+    console.log(infoData)
+    this.setData({
+      info: infoData.message
+    })
   },
 
   /**
