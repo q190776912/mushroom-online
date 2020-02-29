@@ -2,25 +2,21 @@ export default function request(options) {
   const baseUrl = 'http://localhost:3000/api/'
   const token = wx.getStorageSync('token') || null
   const whiteList = [
-    "pages/login/login",
-    "pages/phone-login/phone-login"
+    'user/wxlogin',
+    'user/vcode',
+    'user/login'
   ] 
-  if (!token) {
-    //  getCurrentPages方法获取页面路径栈
-    const pageList = getCurrentPages()
-    const path = pageList[pageList.length - 1].route
-    if (whiteList.indexOf(path) === -1) {
-      wx.showToast({
-        title: '请先登录！',
-        icon: 'none',
-        success() {
-          wx.navigateTo({
-            url: '/pages/login/login',
-          })
-        }
-      })
-      return
-    }
+  if (!token && whiteList.indexOf(options.url) === -1) {
+    wx.showToast({
+      title: '请先登录！',
+      icon: 'none',
+      success() {
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      }
+    })
+    return
   }
   return new Promise((resolve, reject) => {
     wx.showLoading({

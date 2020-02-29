@@ -37,7 +37,9 @@ Page({
     }
     //  发送验证码
     try {
-      const data = await vcodeRequest(this.data.phoneNumber)
+      const data = await vcodeRequest({
+        phone: this.data.phoneNumber
+      })
       if (data.status === 0) {
         wx.showToast({
           title: `验证码：${data.vcode}`,

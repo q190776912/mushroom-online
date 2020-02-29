@@ -12,9 +12,10 @@ function wxloginRequest({ code, nickname, avatar }) {
   })
 }
 
-function vcodeRequest(phone) {
+function vcodeRequest({ phone }) {
   return request({
-    url: `user/vcode?phone=${phone}`
+    url: 'user/vcode',
+    data: { phone }
   })
 }
 
