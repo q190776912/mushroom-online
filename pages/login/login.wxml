@@ -6,7 +6,7 @@
   <text>陪伴从心开始</text>
 </view>
 <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="authorization">
-  <image src="../../assets/images/微信icon@2x.png"></image>
+  <image src="../../assets/images/wx_icon@2x.png"></image>
   <text>微信授权登录</text>
 </button>
 <navigator url="/pages/phone-login/phone-login" class="phone">手机号码登录</navigator>

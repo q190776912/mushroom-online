@@ -106,5 +106,12 @@ Page({
         icon: 'none'
       })
     }
+  },
+
+  //  验证码输入
+  setVcode(event) {
+    this.setData({
+      vcode: event.detail.value
+    })
   }
 })

@@ -61,6 +61,13 @@
 					"id": -1,
 					"name": "pages/phone-login/phone-login",
 					"pathName": "pages/phone-login/phone-login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
 					"scene": null
 				}
 			]

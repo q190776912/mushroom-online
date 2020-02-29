@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/home/home",
+    "pages/course/course",
+    "pages/study/study",
+    "pages/my/my",
+    "pages/login/login",
     "pages/phone-login/phone-login"
   ],
   "window": {
@@ -9,5 +12,20 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#A8A8A8",
+    "selectedColor": "#FF951C",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "icon": "assets/tabs/icon_home@2x.png"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "课程"
+      }
+    ]
+  }
 }

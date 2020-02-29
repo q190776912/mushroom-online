@@ -7,6 +7,6 @@
 <view class="code">
   <input value="{{vcode}}" type="number" placeholder="请输入验证码"></input>
 </view>
-<button bindtap="userLogin" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="btn">立即验证</button>
+<button bindtap="userLogin" bindinput="setVcode" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="btn">立即验证</button>
 <text class="trademark">Copyright © 2019 酷丁鱼在线课堂</text>
 <view class="footer"></view>
