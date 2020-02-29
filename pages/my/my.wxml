@@ -30,7 +30,7 @@
 			<text>清除缓存</text>
 			<image src="/assets/images/arrow@2x.png" alt="" />
 		</view>
-		<view class="cell">
+		<view class="cell" bindtap="makeCall">
 			<text>商务合作</text>
 			<image src="/assets/images/arrow@2x.png" alt="" />
 		</view>

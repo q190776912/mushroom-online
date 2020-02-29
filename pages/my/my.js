@@ -6,7 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: {}
+    info: {},
+    phoneNumber: '15625120668'
+  },
+
+  makeCall() {
+    wx.makePhoneCall({
+      phoneNumber: this.data.phoneNumber
+    })
   },
 
   /**
