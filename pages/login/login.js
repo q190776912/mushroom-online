@@ -29,7 +29,7 @@ Page({
             wx.showToast({
               title: data.message,
               success() {
-                wx.switchTab({
+                wx.reLaunch({
                   url: '/pages/home/home'
                 })
               }

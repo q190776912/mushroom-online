@@ -89,8 +89,7 @@ Page({
         wx.showToast({
           title: data.message,
           success() {
-            console.log(1)
-            wx.switchTab({
+            wx.reLaunch({
               url: '/pages/home/home'
             })
           }

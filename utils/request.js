@@ -19,17 +19,18 @@ export default function request(options) {
           })
         }
       })
+      return
     }
   }
-  wx.showLoading({
-    title: '加载中',
-  })
   return new Promise((resolve, reject) => {
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: `${baseUrl}${options.url}`,
-      header: {
-        Authorization: token || ''
-      },
+      header: token ? {
+        Authorization: token
+      } : null,
       data: options.data || null,
       method: options.method || 'GET',
       success: (res) => {

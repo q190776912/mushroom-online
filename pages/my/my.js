@@ -13,25 +13,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    const infoData = await infoRequest()
-    console.log(infoData)
-    this.setData({
-      info: infoData.message
-    })
+    try {
+      const infoData = await infoRequest()
+      if (infoData.status === 0) {
+        this.setData({
+          info: infoData.message
+        })
+      } else {
+        wx.showToast({
+          title: '获取数据失败',
+          icon: 'none'
+        })
+      }
+    } catch {
+      wx.showToast({
+        title: '获取数据失败',
+        icon: 'none'
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

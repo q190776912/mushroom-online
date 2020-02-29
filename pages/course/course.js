@@ -13,22 +13,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    const listData = await listRequest()
-    let list = listData.message
-    list.forEach((item) => {
-      switch (item.level) {
-        case 1:
-          item.level = '初级';
-          break;
-        case 2:
-          item.level = '中级';
-          break;
-        case 3:
-          item.level = '高级';
-          break;
+    try {
+      const listData = await listRequest()
+      if (listData.status === 0) {
+        let list = listData.message
+        list.forEach((item) => {
+          switch (item.level) {
+            case 1:
+              item.level = '初级';
+              break;
+            case 2:
+              item.level = '中级';
+              break;
+            case 3:
+              item.level = '高级';
+              break;
+          }
+        })
+      } else {
+        wx.showToast({
+          title: '获取数据失败',
+          icon: 'none'
+        })
       }
-    })
-    this.setData({ list })
+      this.setData({ list })
+    } catch {
+      wx.showToast({
+        title: '获取数据失败',
+        icon: 'icon'
+      })
+    }
   },
 
   /**
