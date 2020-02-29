@@ -6,9 +6,9 @@ export default function request(options) {
     "pages/phone-login/phone-login"
   ] 
   if (!token) {
+    //  getCurrentPages方法获取页面路径栈
     const pageList = getCurrentPages()
     const path = pageList[pageList.length - 1].route
-    console.log(path)
     if (whiteList.indexOf(path) === -1) {
       wx.showToast({
         title: '请先登录！',
