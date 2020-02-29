@@ -22,16 +22,9 @@ Page({
   onLoad: async function (options) {
     try {
       const infoData = await infoRequest()
-      if (infoData.status === 0) {
-        this.setData({
-          info: infoData.message
-        })
-      } else {
-        wx.showToast({
-          title: '获取数据失败',
-          icon: 'none'
-        })
-      }
+      this.setData({
+        info: infoData.message
+      })
     } catch {
       wx.showToast({
         title: '获取数据失败',

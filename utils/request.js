@@ -34,7 +34,7 @@ export default function request(options) {
           resolve(res.data)
         } else {
           wx.showToast({
-            title: '登录失败！',
+            title: '获取数据失败！',
           })
           console.log(res.data.message)
         }

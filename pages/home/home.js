@@ -14,16 +14,9 @@ Page({
   getSwipersData: async function () {
     try {
       const swipersData = await swipersRequest()
-      if (swipersData.status === 0) {
-        this.setData({
-          swipersList: swipersData.message
-        })
-      } else {
-        wx.showToast({
-          title: '获取数据失败',
-          icon: 'none'
-        })
-      }
+      this.setData({
+        swipersList: swipersData.message
+      })
     } catch {
       wx.showToast({
         title: '获取数据失败',
@@ -35,16 +28,9 @@ Page({
   getCourseData: async function () {
     try {
       const courseData = await courseRequest()
-      if (courseData.status === 0) {
-        this.setData({
-          courseList: courseData.message
-        })
-      } else {
-        wx.showToast({
-          title: '获取数据失败',
-          icon: 'none'
-        })
-      }
+      this.setData({
+        courseList: courseData.message
+      })
     } catch {
       wx.showToast({
         title: '获取数据失败',
@@ -56,16 +42,9 @@ Page({
   getVideoData: async function () {
     try {
       const videoData = await videoRequest()
-      if (videoData.status === 0) {
-        this.setData({
-          videoList: videoData.message
-        })
-      } else {
-        wx.showToast({
-          title: '获取数据失败',
-          icon: 'none'
-        })
-      }
+      this.setData({
+        videoList: videoData.message
+      })
     } catch {
       wx.showToast({
         title: '获取数据失败',

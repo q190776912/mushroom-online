@@ -15,27 +15,20 @@ Page({
   onLoad: async function (options) {
     try {
       const listData = await listRequest()
-      if (listData.status === 0) {
-        let list = listData.message
-        list.forEach((item) => {
-          switch (item.level) {
-            case 1:
-              item.level = '初级';
-              break;
-            case 2:
-              item.level = '中级';
-              break;
-            case 3:
-              item.level = '高级';
-              break;
-          }
-        })
-      } else {
-        wx.showToast({
-          title: '获取数据失败',
-          icon: 'none'
-        })
-      }
+      let list = listData.message
+      list.forEach((item) => {
+        switch (item.level) {
+          case 1:
+            item.level = '初级';
+            break;
+          case 2:
+            item.level = '中级';
+            break;
+          case 3:
+            item.level = '高级';
+            break;
+        }
+      })
       this.setData({ list })
     } catch {
       wx.showToast({
