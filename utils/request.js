@@ -12,10 +12,12 @@ export default function request(options) {
     if (whiteList.indexOf(path) === -1) {
       wx.showToast({
         title: '请先登录！',
-        icon: 'none'
-      })
-      wx.navigateTo({
-        url: '/pages/login/login',
+        icon: 'none',
+        success() {
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        }
       })
     }
   }
