@@ -1,12 +1,12 @@
 export default function request(options) {
   const baseUrl = 'http://localhost:3000/api/'
   const token = wx.getStorageSync('token') || null
-  const whiteList = [
+  const untokenList = [
     'user/wxlogin',
     'user/vcode',
     'user/login'
   ] 
-  if (!token && whiteList.indexOf(options.url) === -1) {
+  if (!token && untokenList.indexOf(options.url) === -1) {
     wx.showToast({
       title: '请先登录！',
       icon: 'none',
